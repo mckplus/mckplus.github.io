@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thinking — MindPort</title>
+<meta name="description" content="MindPort is a boutique research and strategy advisory firm specializing in human–AI interaction.">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+:root{--bg:#F6F3EC;--ink:#111;--muted:#5d5b54;--line:#E2DCCD;--accent:#1f3a2e;--accent-soft:#E8E3D4}
+html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,system-ui,sans-serif;font-size:16px;line-height:1.55;font-weight:400}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+.serif{font-family:ui-serif,"Iowan Old Style","Apple Garamond",Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-0.01em}
+.eyebrow{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.container{max-width:1180px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px}
+header.site{padding:28px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:10}
+header.site .row{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:ui-serif,Georgia,serif;font-size:22px;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.logo .dot{width:9px;height:9px;background:var(--accent);border-radius:50%;display:inline-block}
+nav.primary{display:flex;gap:28px;font-size:14px}
+nav.primary a{color:var(--muted)}
+nav.primary a.active{color:var(--ink)}
+nav.primary a:hover{color:var(--ink)}
+.cta{display:inline-block;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;font-size:13px;letter-spacing:0.02em;transition:background .2s,color .2s}
+.cta:hover{background:var(--ink);color:var(--bg)}
+.cta.solid{background:var(--ink);color:var(--bg)}
+.cta.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+section.tight{padding:64px 0}
+h1.hero{font-family:ui-serif,Georgia,serif;font-weight:400;font-size:clamp(40px,6vw,76px);line-height:1.05;letter-spacing:-0.025em;margin:0 0 28px}
+h2{font-family:ui-serif,Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.12;letter-spacing:-0.02em;margin:0 0 24px}
+h3{font-family:ui-serif,Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;letter-spacing:-0.015em;margin:0 0 12px}
+h4{font-size:14px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);margin:0 0 10px}
+p{margin:0 0 18px;color:#1a1a1a}
+p.lead{font-size:21px;line-height:1.5;color:#2a2a28}
+.muted{color:var(--muted)}
+ul.clean{list-style:none;padding:0;margin:0 0 18px}
+ul.clean li{padding:14px 0;border-top:1px solid var(--line);color:var(--ink)}
+ul.clean li:last-child{border-bottom:1px solid var(--line)}
+ul.bullets{padding-left:1.1em;margin:0 0 18px}
+ul.bullets li{margin:6px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.grid-eyebrow{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+@media (max-width:840px){.grid-2,.grid-3{grid-template-columns:1fr;gap:40px}.grid-eyebrow{grid-template-columns:1fr;gap:14px}nav.primary{display:none}section{padding:64px 0}}
+.card{padding:32px 0;border-top:1px solid var(--line)}
+.card:last-child{border-bottom:1px solid var(--line)}
+.number{font-family:ui-serif,Georgia,serif;font-size:13px;color:var(--muted);letter-spacing:0.04em}
+.divider{height:1px;background:var(--line);margin:48px 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);background:rgba(255,255,255,.4);margin-bottom:24px}
+.kicker .dot{width:6px;height:6px;background:var(--accent);border-radius:50%}
+.logos{display:flex;flex-wrap:wrap;gap:48px;align-items:center;color:var(--muted);font-family:ui-serif,Georgia,serif;font-size:18px}
+.big-quote{font-family:ui-serif,Georgia,serif;font-size:clamp(26px,3.2vw,38px);line-height:1.25;letter-spacing:-0.018em;color:var(--ink)}
+.q-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:20px 0}
+.q-row p{margin:0;font-family:ui-serif,Georgia,serif;font-size:20px;line-height:1.35;color:var(--ink)}
+@media (max-width:720px){.q-row{grid-template-columns:1fr}}
+footer.site{padding:80px 0 56px;background:#11110f;color:#cfcdc4}
+footer.site h4{color:#fff;margin-bottom:18px}
+footer.site a{color:#cfcdc4}
+footer.site a:hover{color:#fff}
+footer.site .row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+@media (max-width:840px){footer.site .row{grid-template-columns:1fr 1fr;gap:40px}}
+footer.site .brand{font-family:ui-serif,Georgia,serif;font-size:28px;color:#fff;letter-spacing:-0.02em}
+footer.site .fine{margin-top:64px;padding-top:24px;border-top:1px solid #2a2a26;font-size:12px;color:#8c8a82;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.dim-card{padding:40px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.dim-card .num{font-family:ui-serif,Georgia,serif;font-size:42px;color:var(--accent);line-height:1;display:block;margin-bottom:14px}
+.service-block{padding:56px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:240px 1fr;gap:56px}
+.service-block:last-child{border-bottom:1px solid var(--line)}
+@media (max-width:840px){.service-block{grid-template-columns:1fr;gap:24px;padding:40px 0}}
+.cta-band{background:var(--ink);color:var(--bg);padding:96px 0;border:0}
+.cta-band h2{color:var(--bg)}
+.cta-band p{color:#d6d4cc}
+.cta-band .cta{border-color:var(--bg);color:var(--bg)}
+.cta-band .cta:hover{background:var(--bg);color:var(--ink)}
+.work-item{padding:48px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:48px}
+.work-item:last-child{border-bottom:1px solid var(--line)}
+@media (max-width:840px){.work-item{grid-template-columns:1fr;gap:14px;padding:36px 0}}
+.tag{display:inline-block;padding:5px 11px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);margin:4px 6px 4px 0;background:#fff}
+form.contact{display:grid;gap:18px;max-width:560px}
+form.contact label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+form.contact input,form.contact textarea,form.contact select{font:inherit;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+form.contact textarea{min-height:140px;resize:vertical}
+form.contact button{justify-self:start;margin-top:8px}
+</style>
+</head><body>
+<header class="site"><div class="container row">
+<a href="index.html" class="logo"><span class="dot"></span>MindPort</a>
+<nav class="primary">
+  <a href="index.html" >Home</a>
+  <a href="work.html" >Work</a>
+  <a href="services.html" >Services</a>
+  <a href="aix.html" >AIX</a>
+  <a href="thinking.html" class="active">Thinking</a>
+  <a href="about.html" >About</a>
+</nav>
+<a href="contact.html" class="cta">Start a conversation</a>
+</div></header>
+<main>
+
+<section style="padding-top:80px">
+  <div class="container">
+    <div class="kicker"><span class="dot"></span> Thinking</div>
+    <h1 class="hero narrow">Essays, frameworks, and field notes on the human side of AI.</h1>
+    <p class="lead narrow muted">Thinking is where MindPort makes its methods, models, and points of view visible. Essays, reports, field notes, frameworks, and pieces written from the edges of human–AI interaction work.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-eyebrow" style="margin-bottom:24px">
+      <div class="eyebrow">Recent</div>
+      <div><h2>What we're paying attention to.</h2></div>
+    </div>
+    <div class="work-item">
+<div><span class="number">Essay</span></div>
+<div><h3>The trust gap in generative AI products</h3><p class="muted">Why most generative tools win attention but lose retention — and what calibrated trust looks like in practice.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+<div class="work-item">
+<div><span class="number">Framework</span></div>
+<div><h3>Designing for delegation</h3><p class="muted">A working framework for understanding what users hand off to an AI, and what they want to keep.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+<div class="work-item">
+<div><span class="number">Field note</span></div>
+<div><h3>Notes from the agent frontier</h3><p class="muted">Early patterns from teams shipping agentic experiences: where users hesitate, where they let go, where they push back.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+<div class="work-item">
+<div><span class="number">Report</span></div>
+<div><h3>The seven dimensions of AIX</h3><p class="muted">A primer on MindPort's framework for understanding how people experience intelligent systems.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+<div class="work-item">
+<div><span class="number">Point of view</span></div>
+<div><h3>Capability is not the product</h3><p class="muted">Why technical benchmarks describe what AI can do, not whether it will be used.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+<div class="work-item">
+<div><span class="number">Essay</span></div>
+<div><h3>Meaning in machine collaboration</h3><p class="muted">How AI tools change the way people see their own creativity, expertise, and identity at work.</p><p><a href="#" style="border-bottom:1px solid var(--line);padding-bottom:2px">Read →</a></p></div></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container narrow">
+    <div class="eyebrow" style="color:#a8a69e;margin-bottom:24px">Stay in touch</div>
+    <h2>Occasional notes from the human side of AI.</h2>
+    <p class="lead" style="color:#d6d4cc">New essays, frameworks, and field notes — sent when we have something worth sharing, not before.</p>
+    <form class="contact" style="margin-top:32px;max-width:480px" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thanks — we will be in touch.'">
+      <label>Email<input type="email" required placeholder="you@company.com" style="background:#1a1a17;border-color:#2a2a26;color:#fff"></label>
+      <button class="cta" type="submit" style="border-color:var(--bg);color:var(--bg)">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="site"><div class="container">
+<div class="row">
+  <div>
+    <div class="brand">MindPort</div>
+    <p class="muted" style="margin-top:14px;max-width:340px;color:#9c9a92">A boutique research and strategy advisory firm specializing in human–AI interaction.</p>
+  </div>
+  <div>
+    <h4>Practice</h4>
+    <p><a href="services.html">Services</a></p>
+    <p><a href="aix.html">AIX framework</a></p>
+    <p><a href="work.html">Work</a></p>
+  </div>
+  <div>
+    <h4>Firm</h4>
+    <p><a href="about.html">About</a></p>
+    <p><a href="thinking.html">Thinking</a></p>
+    <p><a href="contact.html">Contact</a></p>
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <p>hello@mindport.ca</p>
+    <p class="muted" style="color:#9c9a92">Toronto · Remote</p>
+  </div>
+</div>
+<div class="fine"><span>© MindPort Advisory Inc. All rights reserved.</span><span>Building for the human side of AI.</span></div>
+</div></footer>
+</body></html>
