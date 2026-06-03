@@ -130,23 +130,47 @@ form.contact button{justify-self:start;margin-top:8px}
         </div>
       </div>
       <div>
-        <form class="contact" onsubmit="event.preventDefault();this.innerHTML='<h3 style=&quot;margin-top:0&quot;>Thanks.</h3><p>We have your note and will be in touch shortly.</p>'">
-          <label>Your name<input type="text" required placeholder="Full name"></label>
-          <label>Email<input type="email" required placeholder="you@company.com"></label>
-          <label>Company<input type="text" placeholder="Where you work"></label>
-          <label>Inquiry type
-            <select>
-              <option>AI experience research</option>
-              <option>Human–AI product strategy</option>
-              <option>AIX advisory</option>
-              <option>Roadmap or strategy question</option>
-              <option>Frontier work</option>
-              <option>Something else</option>
-            </select>
-          </label>
-          <label>The question you are trying to answer<textarea required placeholder="A few sentences is plenty — we will follow up."></textarea></label>
-          <button type="submit" class="cta solid">Send</button>
-        </form>
+        <form class="contact" action="https://formspree.io/f/mgveopnb" method="post">
+  <label>
+    Your name
+    <input type="text" name="name" required placeholder="Full name">
+  </label>
+
+  <label>
+    Email
+    <input type="email" name="_replyto" required placeholder="you@company.com">
+  </label>
+
+  <label>
+    Company
+    <input type="text" name="company" placeholder="Where you work">
+  </label>
+
+  <label>
+    Inquiry type
+    <select name="inquiry_type">
+      <option>AI experience research</option>
+      <option>Human–AI product strategy</option>
+      <option>AIX advisory</option>
+      <option>Roadmap or strategy question</option>
+      <option>Frontier work</option>
+      <option>Something else</option>
+    </select>
+  </label>
+
+  <label>
+    The question you are trying to answer
+    <textarea name="message" required placeholder="A few sentences is plenty — we will follow up."></textarea>
+  </label>
+
+  <input type="hidden" name="_subject" value="MindPort Contact Form">
+
+  <button type="submit" class="cta solid">Send</button>
+
+  <p class="muted" style="font-size:13px;margin-top:8px">
+    By submitting this form, you agree to MindPort’s privacy policy. A new tab may open to verify you are human.
+  </p>
+</form>
       </div>
     </div>
   </div>
